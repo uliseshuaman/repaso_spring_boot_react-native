@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
+//@CrossOrigin(origins = "http://127.0.0.1:8081") // permite ese origen
 @RequestMapping("/inicio/users")
-@CrossOrigin(origins = "http://127.0.0.1:8081") // permite ese origen
 public class UsersController {
     private final UserService userService;
 
@@ -56,6 +56,7 @@ public class UsersController {
     }
 
     // Endpoints de ejemplo que ya tenías (opcionales)
+    /*
     @GetMapping("/info")
     public ResponseEntity<String> defecto() {
         return ResponseEntity.ok("Mensaje de inicio");
@@ -69,5 +70,5 @@ public class UsersController {
     @GetMapping("/segundo")
     public ResponseEntity<String> segundo() {
         return ResponseEntity.ok("Mensaje desde segundo");
-    }
+    } */
 }

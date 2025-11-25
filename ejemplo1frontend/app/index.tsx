@@ -67,9 +67,11 @@ export default function UsersList() {
     fetchUsers();
   }, []);
 
-  async function fetchUsers() {
+  //ACTUALIZACIÓN
+  async function fetchUsers() {//Para refrescar
     try {
       setLoading(true);
+      //Aquí va hacer consulta al controlador
       const res = await api.get<UserDto[]>('/inicio/users');
       setUsers(res.data ?? []);
     } catch (err: unknown) {
@@ -82,7 +84,7 @@ export default function UsersList() {
       setLoading(false);
     }
   }
-
+  
   function renderItem({ item }: { item: UserDto }) {
     return (
       <TouchableOpacity style={styles.item} onPress={() => router.push(`/${item.id}`)}>

@@ -46,7 +46,7 @@ public class UserServiceImp implements UserService{
     public List<UserDto> findAll() {
         return userRepository.findAll()
                 .stream()
-                .map(this :: toDto)
+                .map(this :: toDto)//llama a la función toDto y le pasa User, toDto(user)
                 .collect(Collectors.toList());
     }
 
