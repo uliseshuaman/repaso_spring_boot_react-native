@@ -12,7 +12,7 @@ export default function CreateUser() {
   const router = useRouter();
 
   async function handleCreate() {
-    if (!name.trim()) {
+    if (!name.trim()) {//Si es vacío
       Alert.alert('Validación', 'El nombre es obligatorio');
       return;
     }
@@ -28,7 +28,7 @@ export default function CreateUser() {
       setLoading(true);
       const res = await api.post<UserDto>('/inicio/users', payload);
       Alert.alert('Creado', `Usuario creado con id ${res.data.id}`);
-      router.replace('/'); // volver a la lista
+      router.replace('/'); // volver a la lista que en este caso es index
     } catch (err: unknown) {
       if (err instanceof Error) {
         Alert.alert('Error', 'No se pudo crear: ' + err.message);
